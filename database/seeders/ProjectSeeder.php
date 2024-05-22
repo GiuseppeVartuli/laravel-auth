@@ -21,7 +21,7 @@ class ProjectSeeder extends Seeder
             $newProject->title = $project['title'];
             $newProject->cover_image = $project['cover_image'];
             $newProject->content = $project['content'];
-            $newProject->slug = Str::of($project->title)->slug('-');
+            $newProject->slug = Str::of($project['title'])->slug('-');
             $newProject->save();
 
 
