@@ -17,12 +17,12 @@ class ProjectSeeder extends Seeder
         $projects = config('projects.projects');
 
         foreach ($projects as $project){
-            $project = new Project();
-            $project->title = $project['title'];
-            $project->cover_image = $project['cover_image'];
-            $project->content = $project['content'];
-            $project->slug = Str::of($project->title)->slug('-');
-            $project->save();
+            $newProject = new Project();
+            $newProject->title = $project['title'];
+            $newProject->cover_image = $project['cover_image'];
+            $newProject->content = $project['content'];
+            $newProject->slug = Str::of($project->title)->slug('-');
+            $newProject->save();
 
 
 
