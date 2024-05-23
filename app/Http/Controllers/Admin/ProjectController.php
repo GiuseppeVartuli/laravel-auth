@@ -24,15 +24,17 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProjectRequest $request)
+    public function store(StoreProjectRequest $request) // per la validazione andare in storeproject e imposta true nelle autorizzazioni.
     {
         //
+        $val_data = $request->validated();
+        dd($val_data);
     }
 
     /**
