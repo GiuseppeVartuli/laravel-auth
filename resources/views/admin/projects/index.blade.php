@@ -6,7 +6,7 @@
             class="table-responsive"
         >
             <table
-                class="table table-primary mt-5 "
+                class="table table-primary mt-5   "
             >
                 <thead>
                     <tr>
@@ -27,7 +27,7 @@
                         </td>
                         <td scope="row">{{$project->slug}}</td>
                         <td scope="row">
-                            <a class="btn btn-primary " href="{{route('admin.projects.show', $project)}}">View</a>
+                            <a class="btn btn-primary " href="{{route('admin.projects.show', $project)}}" >View</a>
                             <a class="btn btn-secondary " href="">Edit</a>
                             <a class="btn btn-danger " href="">Delete</a>
                         </td>
@@ -43,6 +43,7 @@
                     
                 </tbody>
             </table>
+            <a class="btn btn-primary " href="{{route('admin.projects.create')}}">Aggiungi</a>
         </div>
         
     </div>
