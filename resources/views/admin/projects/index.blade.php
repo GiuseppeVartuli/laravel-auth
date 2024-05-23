@@ -6,7 +6,7 @@
             class="table-responsive"
         >
             <table
-                class="table table-primary"
+                class="table table-primary mt-5 "
             >
                 <thead>
                     <tr>
@@ -21,15 +21,15 @@
                     @forelse ($projects as $project )
                     <tr class="">
                         <td scope="row">{{$project->id}}</td>
+                        <td scope="row">{{$project->title}}</td>
                         <td scope="row">
                             <img src="{{$project->cover_image}}" alt="">
                         </td>
-                        <td scope="row">{{$project->title}}</td>
                         <td scope="row">{{$project->slug}}</td>
                         <td scope="row">
-                            <a href="{{route('admin.projects.show', $project)}}">View</a>
-                            <a href=""></a>
-                            <a href=""></a>
+                            <a class="btn btn-primary " href="{{route('admin.projects.show', $project)}}">View</a>
+                            <a class="btn btn-secondary " href="">Edit</a>
+                            <a class="btn btn-danger " href="">Delete</a>
                         </td>
                         
                     </tr>
