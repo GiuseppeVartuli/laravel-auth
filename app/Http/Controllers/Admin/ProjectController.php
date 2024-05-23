@@ -34,7 +34,9 @@ class ProjectController extends Controller
     {
         //
         $val_data = $request->validated();
-        dd($val_data);
+        //dd($val_data);
+        Project::create($val_data);
+        return to_route('admin.projects.index')->with('message', 'Hai creato un nuovo progetto');
     }
 
     /**
