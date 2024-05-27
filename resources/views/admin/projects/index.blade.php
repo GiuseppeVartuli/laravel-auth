@@ -23,12 +23,12 @@
                         <td scope="row">{{$project->id}}</td>
                         <td scope="row">{{$project->title}}</td>
                         <td scope="row">
-                            <img src="{{$project->cover_image}}" alt="">
+                            <img width="120" src="{{$project->cover_image}}" alt="">                            
                         </td>
                         <td scope="row">{{$project->slug}}</td>
                         <td scope="row">
                             <a class="btn btn-primary " href="{{route('admin.projects.show', $project)}}" >View</a>
-                            <a class="btn btn-secondary " href="">Edit</a>
+                            <a class="btn btn-secondary " href="{{route('admin.projects.edit', $project)}}">Edit</a>
                             <a class="btn btn-danger " href="">Delete</a>
                         </td>
                         

@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -34,9 +35,11 @@ class ProjectController extends Controller
     {
         //
         $val_data = $request->validated();
+
+        $val_data['slug'] = Str::slug($request->title, '-');
         //dd($val_data);
         Project::create($val_data);
-        return to_route('admin.projects.index')->with('message', 'Hai creato un nuovo progetto');
+        return to_route('admin.projects.index'); //->with('message', 'Hai creato un nuovo progetto');
     }
 
     /**
@@ -52,7 +55,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -60,7 +63,7 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        dd($request->all);
     }
 
     /**
