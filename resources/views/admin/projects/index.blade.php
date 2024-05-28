@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        @include('partials.message')
         <div
             class="table-responsive"
         >

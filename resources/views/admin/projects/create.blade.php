@@ -38,6 +38,7 @@
                 id="cover_image"
                 placeholder=""
                 aria-describedby="coverImageHelp"
+                
             />
             <div id="fileHelpId" class="form-text">Carica l'immagine</div>
             @error('cover_image')
@@ -53,14 +54,14 @@
                 <div class="text-danger">{{$message}}</div>
             @enderror
         </div>
-        
+        <a class="btn btn-primary " href="{{route('admin.projects.index')}}"> Indietro</a>
         <button
             type="submit"
             class="btn btn-primary"
         >
             Crea
         </button>
-        <a class="btn btn-primary " href="{{route('admin.projects.index')}}">Indietro</a>
+        
 
         </form>
     </div>
