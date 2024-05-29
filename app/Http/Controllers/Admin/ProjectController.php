@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -35,11 +36,11 @@ class ProjectController extends Controller
     {
         //
         $val_data = $request->validated();
-
+        $val_data['cover_image'] = Storage::put('uploads', $request->cover_image);
         $val_data['slug'] = Str::slug($request->title, '-');
         //dd($val_data);
         Project::create($val_data);
-        return to_route('admin.projects.index'); //->with('message', 'Hai creato un nuovo progetto');
+        return to_route('admin.projects.index')->with('message', 'Hai creato un nuovo progetto');
     }
 
     /**
@@ -63,7 +64,13 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        dd($request->all);
+        //dd($request->all());
+
+        $val_data = $request->validate();
+
+        $project->update($val_data);
+
+        return to_route('admin.projects.index')->with('message', 'Hai modificato il progetto');
     }
 
     /**
