@@ -66,7 +66,7 @@ class ProjectController extends Controller
     {
         //dd($request->all());
 
-        $val_data = $request->validate();
+        $val_data = $request->validated();
 
         $project->update($val_data);
 
@@ -78,6 +78,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return to_route('admin.projects.index')->with('message', 'Hai eliminato il progetto');
     }
 }

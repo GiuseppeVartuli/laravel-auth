@@ -6,10 +6,10 @@
 
         @include('partials.errors')
 
+        @include('partials.message')
 
 
-
-        <form action="{{route('admin.projects.store')}}" method="post">
+        <form action="{{route('admin.projects.store')}}" method="post" enctype="multipart/form-data" >
         @csrf
 
         <div class="mb-3 mt-5 ">
