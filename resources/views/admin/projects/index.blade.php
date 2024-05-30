@@ -30,7 +30,8 @@
                         <td scope="row">
                             <a class="btn btn-primary " href="{{route('admin.projects.show', $project)}}" >View</a>
                             <a class="btn btn-secondary " href="{{route('admin.projects.edit', $project)}}">Edit</a>
-                            <a class="btn btn-danger " href="">Delete</a>
+                            
+                            @include('admin.projects.partials.delete')
 
 
 
