@@ -40,6 +40,7 @@ class ProjectController extends Controller
         $val_data['slug'] = Str::slug($request->title, '-');
         //dd($val_data);
         Project::create($val_data);
+        
         return to_route('admin.projects.index')->with('message', 'Hai creato un nuovo progetto');
     }
 
@@ -67,6 +68,17 @@ class ProjectController extends Controller
         //dd($request->all());
 
         $val_data = $request->validated();
+
+
+        if ($request->has('cover_image')) {
+            if ($project->cover_image) {
+                Storage::delete($project->cover_image);
+            }
+
+            $image_path = Storage::put('uploads', $request->cover_image);
+
+            $val_data['cover_image'] = $image_path;
+        }
 
         $project->update($val_data);
 

@@ -20,7 +20,7 @@
             <small id="titleHelp" class="form-text text-muted">Modifica titolo</small>
         </div>
         <div class="mb-3 d-flex gap-4">
-            <img src="{{$project->cover_img}}" alt="...">
+            <img src="{{asset('storage/uploads' . $project->cover_image)}}" alt="...">
             <div class="mb-3">
 
             

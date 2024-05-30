@@ -24,7 +24,7 @@
                         <td scope="row">{{$project->id}}</td>
                         <td scope="row">{{$project->title}}</td>
                         <td scope="row">
-                            <img width="120" src="../storage/{{$project->cover_image}}" alt="">                            
+                            <img width="120" src="{{asset('storage/' . $project->cover_image)}}" alt="">                            
                         </td>
                         <td scope="row">{{$project->slug}}</td>
                         <td scope="row">
