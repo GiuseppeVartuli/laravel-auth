@@ -19,11 +19,25 @@
             />
             <small id="titleHelp" class="form-text text-muted">Modifica titolo</small>
         </div>
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Tipo di progetto</label>
+            <select
+                class="form-select"
+                name="type_id"
+                id="type_id"
+            >
+                <option selected disabled>Seleziona una tipologia</option>
+                
+                @foreach ($types as $type)
+                    <option value="{{$type->id}} {{old('type_id') == $type->id ? 'selected' : ''}}">{{$type->name}}</option>
+                @endforeach
+            </select>
+        </div>
         <div class="mb-3 d-flex gap-4">
             <img src="{{asset('storage/uploads' . $project->cover_image)}}" alt="...">
             <div class="mb-3">
 
-            
+                
             
             <label for="cover_image" class="form-label">Choose file</label>
             <input

@@ -11,6 +11,11 @@
                     <img width="120" src="{{asset('storage/' . $project->cover_image)}}" class="card-img-top" alt="image">
                     <div class="card-body">
                       <h5 class="card-title">{{$project->title}}</h5>
+                      <div>
+                        
+                        <strong>Categoria:</strong>
+                        {{$project->type?->name}}
+                      </div>
                       <p class="card-text">{{$project->content}}</p>
                       <a href="{{route('admin.projects.index')}}" class="btn btn-primary">Back</a>
                     </div>

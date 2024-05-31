@@ -3,9 +3,11 @@
 @section('content')
     <div class="container">
         @include('partials.message')
+        
         <div
             class="table-responsive"
         >
+        <a class="btn btn-primary mt-5 " href="{{route('admin.projects.create')}}">Aggiungi</a>
             <table
                 class="table table-primary mt-5   "
             >
@@ -49,7 +51,7 @@
                     
                 </tbody>
             </table>
-            <a class="btn btn-primary " href="{{route('admin.projects.create')}}">Aggiungi</a>
+            
         </div>
         
     </div>
