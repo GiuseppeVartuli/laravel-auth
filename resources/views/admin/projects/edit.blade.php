@@ -26,10 +26,10 @@
                 name="type_id"
                 id="type_id"
             >
-                <option selected disabled>Seleziona una tipologia</option>
+                <option  selected disabled>Seleziona tipologia</option>
                 
                 @foreach ($types as $type)
-                    <option value="{{$type->id}} {{old('type_id') == $type->id ? 'selected' : ''}}">{{$type->name}}</option>
+                    <option value="{{$type->id}} {{old('type_id', $project->type_id) == $type->id ? 'selected' : ''}}">{{$type->name}}</option>
                 @endforeach
             </select>
         </div>
