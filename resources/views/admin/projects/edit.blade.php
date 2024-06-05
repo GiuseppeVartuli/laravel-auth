@@ -29,7 +29,7 @@
                 <option  selected disabled>Seleziona tipologia</option>
                 
                 @foreach ($types as $type)
-                    <option value="{{$type->id}} {{old('type_id', $project->type_id) == $type->id ? 'selected' : ''}}">{{$type->name}}</option>
+                    <option value="{{$type->id}}" {{old('type_id', $project->type_id) == $type->id ? 'selected' : ''}}>{{$type->name}}</option>
                 @endforeach
             </select>
         </div>
@@ -59,7 +59,7 @@
 
         <div class="mb-3">
             <label for="content" class="form-label">Modifica testo</label>
-            <textarea class="form-control" name="content" id="content" rows="5" value="{{old('content', $project->content)}}"></textarea>
+            <textarea class="form-control" name="content" id="content" rows="5" >{{old('content', $project->content)}}</textarea>
         </div>
         
         <button

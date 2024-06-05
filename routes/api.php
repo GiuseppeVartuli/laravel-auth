@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
-Route::get('projects',[Projectcontroller::class, 'index'] );
+Route::get('/projects',[Projectcontroller::class, 'index'] );
 
-Route::get('projects/{project}',[Projectcontroller::class, 'show'] );
+Route::get('/projects/{project}',[Projectcontroller::class, 'show'] );
 

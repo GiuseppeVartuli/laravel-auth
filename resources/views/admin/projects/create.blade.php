@@ -36,13 +36,34 @@
                 name="type_id"
                 id="type_id"
             >
-                <option selected disabled>Seleziona una tipologia</option>
+                <option >Seleziona una tipologia</option>
                 
                 @foreach ($types as $type)
-                    <option value="{{$type->id}} {{old('type_id') == $type->id ? 'selected' : ''}}">{{$type->name}}</option>
+                    <option value="{{$type->id}}" {{old('type_id') == $type->id ? 'selected' : ''}}>{{$type->name}}</option>
                 @endforeach
             </select>
         </div>
+        
+        <div class="d-flex">
+            @foreach ($tecnologies as $tecnology)
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="{{$tecnology->id}}" 
+            
+            {{in_array($tecnology->id, old('tecnologies', [])) ? 'checked' : ''}}
+
+{{--             {{ in_array($tecnology->id, old('tecnologies', $project->tecnologies->pluck('id')->toArray() ?? [])) ? 'checked' : '' }} />
+ --}}
+
+
+            id="tecnology-{{$tecnology->id}}" name="tecnologies[]"/>
+            <label class="form-check-label" for="tecnology-{{$tecnology->id}}"> {{$tecnology->name}} </label>
+            </div>
+            @endforeach
+        </div>
+            
+        
+        
+        
         
 
         <div class="mb-3">
@@ -65,7 +86,7 @@
         
         <div class="mb-3">
             <label for="content" class="form-label">Inserisci testo</label>
-            <textarea class="form-control" name="content" id="content" rows="5" value="{{old('content')}}"></textarea>
+            <textarea class="form-control" name="content" id="content" rows="5" >{{old('content')}}</textarea>
             @error('content')
                 <div class="text-danger">{{$message}}</div>
             @enderror
