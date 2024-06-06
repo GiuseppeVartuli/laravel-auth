@@ -33,6 +33,24 @@
                 @endforeach
             </select>
         </div>
+
+        <div class="d-flex">
+            @foreach ($tecnologies as $tecnology)
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="{{$tecnology->id}}" 
+            
+            {{ in_array($tecnology->id, old('tecnologies', $project->tecnologies->pluck('id')->toArray() ?? [])) ? 'checked' : '' }} 
+
+{{--             
+ --}}
+
+
+            id="tecnology-{{$tecnology->id}}" name="tecnologies[]"/>
+            <label class="form-check-label" for="tecnology-{{$tecnology->id}}"> {{$tecnology->name}} </label>
+            </div>
+            @endforeach
+        </div>
+
         <div class="mb-3 d-flex gap-4">
             <img src="{{asset('storage/uploads' . $project->cover_image)}}" alt="...">
             <div class="mb-3">
