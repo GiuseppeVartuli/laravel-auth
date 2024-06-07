@@ -16,7 +16,7 @@
                         <strong>Categoria:</strong>
                         <span>{{ $project->type ? $project->type->name : 'Nessuno' }}</span>
                         
-                        <div class="tecnologies d-flex gap-2">
+                        <div class="tecnologies d-flex flex-wrap gap-2">
                           <strong>Tecnologie:</strong>
                           @forelse ($project->tecnologies as $tech)
                             <span class="badge bg-success"> {{$tech->name}}</span>
