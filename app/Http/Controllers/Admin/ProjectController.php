@@ -94,6 +94,10 @@ class ProjectController extends Controller
 
         $project->update($val_data);
 
+        if($request->has('tecnologies')) {
+            $project->tecnologies()->sync($val_data['tecnologies']);
+        }
+
         return to_route('admin.projects.index')->with('message', 'Hai modificato il progetto');
     }
 
